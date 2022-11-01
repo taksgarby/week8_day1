@@ -98,17 +98,18 @@ function App() {
   //   setCalculatedTotal(calculatedNumber);
   // }
 
- function divide (number) {
-    let calculatedNumber;
-    if (number === 0) {
-      alert('Cannot divide by 0')
-      return;
-    } else{
-      calculatedNumber = parseFloat(previousTotal) / parseFloat(number);
+  function divide(number) {
+    let calculatedNumber = parseFloat(previousTotal) / parseFloat(number);
+    if (calculatedNumber === Infinity) {
+      setRunningTotal('Cannot divide by 0');
+      setCalculatedTotal('Cannot divide by 0');
+    } else {
+      setRunningTotal(calculatedNumber);
+      setCalculatedTotal(calculatedNumber);
     }
-    setRunningTotal(calculatedNumber);
-    setCalculatedTotal(calculatedNumber);
- }
+  }
+
+
 
 
   return (
